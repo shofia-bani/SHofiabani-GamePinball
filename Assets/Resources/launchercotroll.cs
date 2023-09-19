@@ -29,7 +29,7 @@ public class launchercotroll : MonoBehaviour
         }
     }
 
-    private IEnumerator StartHold()
+    private IEnumerator StartHold(Collider collider)
     {
         isHold = true;
         float force = 0.0f;
@@ -42,7 +42,7 @@ public class launchercotroll : MonoBehaviour
             yield return new WaitForEndOfFrame();
             timeHold += Time.deltaTime;
         }
-        GetComponent<Collider>().GetComponent<Rigidbody>().AddForce(Vector3.forward * Force);
+        collider.GetComponent<Rigidbody>().AddForce(Vector3.forward * force);
         isHold = false;
     }
 }
